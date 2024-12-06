@@ -7,6 +7,23 @@ function App() {
   const [greetMsg, setGreetMsg] = useState("");
   const [name, setName] = useState("");
 
+  const testApi = async () => {
+    fetch("http://localhost:8180/api/test", {
+      method: "GET",
+
+    }
+    ).then((response) => response.text())
+    .then((data) => {
+      console.log(data);
+      alert(data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      alert(error);
+    });
+
+  }
+
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     setGreetMsg(await invoke("greet", { name }));
@@ -44,6 +61,7 @@ function App() {
         <button type="submit">Greet</button>
       </form>
       <p>{greetMsg}</p>
+      <button onClick={testApi}>LLama a java</button>
     </main>
   );
 }

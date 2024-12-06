@@ -26,3 +26,4 @@ dist-ssr
 # Builds
 target
 extraFiles
+gen
