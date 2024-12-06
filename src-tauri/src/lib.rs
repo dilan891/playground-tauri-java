@@ -3,7 +3,7 @@ use std::process::Child;
 use std::env;
 use std::thread;
 use std::sync::{Arc, Mutex};
-use tauri::{Builder, WindowEvent, Window};
+use tauri::{Builder, WindowEvent};
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
 #[tauri::command]
