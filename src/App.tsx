@@ -1,6 +1,8 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
+import jsPDF from 'jspdf';
+//import excel from 'excel4node';
 import "./App.css";
 
 function App() {
@@ -22,6 +24,19 @@ function App() {
       alert(error);
     });
 
+  }
+
+  const createExamplePdf = () => {
+    const doc = new jsPDF();
+    doc.text("Hello world!", 10, 10);
+    doc.save("a4.pdf");
+  }
+
+  const createExcel = () => {
+    //const wb = new excel.Workbook();
+    //const ws = wb.addWorksheet('Sheet 1');
+    //ws.cell(1, 1).string('Hello');
+    //wb.write('Excel.xlsx');
   }
 
   async function greet() {
@@ -62,6 +77,8 @@ function App() {
       </form>
       <p>{greetMsg}</p>
       <button onClick={testApi}>LLama a java</button>
+      <button onClick={createExamplePdf}>crear pdf</button>
+      <button >crear excel</button>
     </main>
   );
 }
